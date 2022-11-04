@@ -1,4 +1,4 @@
-Written by: Yu Fan, Aaron Tsang, Max Mai, Jeyshinee Pyneeandee
+Written by: Jeyshinee Pyneeandee, Yu Fan, Aaron Tsang, Max Mai
 
 ## Analysis on variables affecting mental health during the COVID-19 pandemic in BC
 
