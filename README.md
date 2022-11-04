@@ -11,6 +11,7 @@ are on the mental health of British Columbia residents. This study involves thre
 variables: age, gender and underlying health conditions. The response variable is the
 percentage of the population who feel that their mental health status has changed for the
 worse, following the pandemic.
+
 ● Data collected
 This study is an observational study, we selected three categorical variables as our
 explanatory variables. All the data were collected by Statistics Canada, the collection period
@@ -19,51 +20,67 @@ going through StatsCan and selecting the wanted explanatory and response variabl
 accessed an overall data set including all three variables and additional data sets where we set
 all but one variable to an “overall” group so we could isolate that one variable. Below is a
 brief description of the variables we were using in our models:
+
 ➢ Age
 A categorical variable with 4 levels: 18 to 34 years, 35 to 49 years, 50 to 69 years, 70
 years and older. We choose the 18 to 34 years group as the baseline. Age was chosen
 because different age groups were impacted differently by the pandemic. For
 example, certain groups were probably worried about income loss, others about
 school. All these might have impacted their mental health differently.
+
 ➢ Gender
 A categorical variable with 2 levels: Male, Female. We choose male as the baseline.
 Gender was chosen because it is possible that gender may play a different role in how
-Yu Fan, Aaron Tsang, Max Mai, Jeyshinee Pyneeandee
 people deal with mental stress and, in turn, may affect mental health status. We want
 to eliminate the possibility of this as much as possible.
+
 ➢ Underlying health conditions
 A categorical variable with 2 levels: Yes, No. We choose no as the baseline. Health
 conditions were chosen because having any particular condition already might affect
 how people emotionally reacted to a pandemic and its consequences.
+
 ● Models
 Our study involves a total of 3 models, baseline model with no interaction terms, model 1
 with an interaction term between gender and health conditions, and model 2 includes an
 interaction term between age and health conditions
 The models fitted are shown below:
+
 ➢ Baseline Model:
 𝑌 = β0 + β1𝑎𝑔𝑒1 + β2 𝑎𝑔𝑒2 + β3𝑎𝑔𝑒3 + β4𝑔𝑒𝑛𝑑𝑒𝑟𝑓 + β5ℎ𝑒𝑎𝑙𝑡ℎ𝑛𝑜
+
 ➢ Model 1:
 𝑌 = β0 + β1𝑎𝑔𝑒1 + β2 𝑎𝑔𝑒2 + β3𝑎𝑔𝑒3 + β4𝑔𝑒𝑛𝑑𝑒𝑟𝑓 + β5ℎ𝑒𝑎𝑙𝑡ℎ𝑛𝑜 + β6 𝑔𝑒𝑛𝑑𝑒𝑟𝑓ℎ𝑒𝑎𝑙𝑡ℎ𝑛𝑜
+
 ➢ Model 2:
 𝑌 = β0 + β1𝑎𝑔𝑒1 + β2 𝑎𝑔𝑒2 + β3𝑎𝑔𝑒3 + β4𝑔𝑒𝑛𝑑𝑒𝑟𝑓 + β5ℎ𝑒𝑎𝑙𝑡ℎ𝑛𝑜 + β6𝑎𝑔𝑒1ℎ𝑒𝑎𝑙𝑡ℎ𝑛𝑜 + β7𝑎𝑔𝑒2ℎ𝑒𝑎𝑙𝑡ℎ𝑛𝑜 + β8𝑎𝑔𝑒3ℎ𝑒𝑎𝑙𝑡ℎ
+
+![image](https://user-images.githubusercontent.com/114613042/199873956-50da2024-7d5a-4a7d-9b65-8cdb40b17318.png)
+
 
 ### Analysis
 In order to provide a visualization on our categorical variables versus the percentage of
 people with worsened mental health, we’ve decided to isolate each variable (age, gender,
 underlying health condition) while keeping the rest constant to provide a visualization of each
 respective group’s percentage of people having worse mental health compared to
-pre-pandemic. We wanted to use boxplots to give a visualization of where each category’s
+pre-pandemic. 
+We wanted to use boxplots to give a visualization of where each category’s
 mean percent of people with worse mental health since pre-pandemic. By visually comparing
 and using R to find the means of each category, we’re able to much easier understand why
 certain coefficients of the models are positive or negative.
-% of people with worse mental health than pre-pandemic categorized by whether they have an
-underlying health condition
+![image](https://user-images.githubusercontent.com/114613042/199874024-afd5a41c-f55b-4cfe-aa05-88e8bee16d10.png)
+
+![image](https://user-images.githubusercontent.com/114613042/199874034-4ab72235-be46-482a-9315-6ea9742811a2.png)
+
 
 Through calculations of the mean of the categories Yes and No, we observed that the mean of
 the category No is greater than Yes. This was an unexpected result compared to our model
 because we are using the No underlying health conditions as the base line. We think that this
 may be due to the case of collinearity with other variables such as Age which may have
-affected the coefficient. Regardless, we observed that if we were to keep all other variables
+affected the coefficient.
+![image](https://user-images.githubusercontent.com/114613042/199874084-3058a9c0-2f57-4644-a440-67906ea45878.png)
+
+
+Regardless, we observed that if we were to keep all other variables
 constant except the underlying health condition, there is a greater average of people with
 worse mental health when they do not have an underlying health condition.
 % of people with a worse mental health than pre-pandemic categorized by age group
@@ -72,11 +89,13 @@ highest percentage average of people with worse mental health than pre-pandemic 
 ages 35 to 49 followed by age group 50 to 69, 18 to 34 and finally the age group of 70+. We
 believe this is exactly what we expected based on our model using the age group 18-34 as the
 baseline as well as in real situations. We think that the reason why the first three age groups
-Yu Fan, Aaron Tsang, Max Mai, Jeyshinee Pyneeandee
-have the highest mean is because their livelihood/ social life is greatly affected due to the
+Yhave the highest mean is because their livelihood/ social life is greatly affected due to the
 COVID-19 shutdowns and indoor restrictions. However, a different study that includes
 income would be required to back up our reasoning.
-% of people with a worse mental health than pre-pandemic categorized by gender
+
+
+![image](https://user-images.githubusercontent.com/114613042/199874127-ee63d321-20cb-4de9-9c44-af8e826e1216.png)
+
 As we can clearly see through the box plot to compare the categories of gender (Male,
 Female) and the mean of each category calculated through R, this is the expected signs when
 comparing the differences of the mean when isolating each gender. The reason why the base
