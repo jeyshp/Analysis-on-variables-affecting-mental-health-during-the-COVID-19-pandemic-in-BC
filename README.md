@@ -167,10 +167,15 @@ for each.
 ![image](https://user-images.githubusercontent.com/114613042/199874614-b5fbc542-5804-416b-9ba7-67096f67b041.png)
 
 For model 1: p + 1 = 3, Mallows’ CP =23.424
-\\ For model 2: p + 1 = 4, Mallows’ CP = 9.930
-\\ For model 3: p + 1 = 5, Mallows’ CP = 4.132
-\\ For model 4: p + 1 = 6, Mallows’ CP = 3.913
+
+For model 2: p + 1 = 4, Mallows’ CP = 9.930
+
+For model 3: p + 1 = 5, Mallows’ CP = 4.132
+
+For model 4: p + 1 = 6, Mallows’ CP = 3.913
+
 For model 5: p + 1 = 7, Mallows’ CP = 5.496
+
 For model 6: p + 1 = 8, Mallows’ CP = 7.000
 
 We can see from the above that model 3 has a value for Mallow’s Cp (4.13) that is closest to
@@ -183,20 +188,23 @@ and Gender as variables.
 In conclusion, we can see that COVID-19 has affected the mental health of people from
 different groups variously. We can see from the boxplots above, people ages from 35-49,
 people whose gender is female and people who do NOT have underlying health conditions
-seem to have worse mental health status during the pandemic. As for the models above we
-fitted, we conclude that model 2 is the “best” fitted model among the three, which includes an
+seem to have worse mental health status during the pandemic. 
+
+As for the models above we fitted, we conclude that model 2 is the “best” fitted model among the three, which includes an
 interaction term between age and underlying health conditions, with intercept, age group 1
 (35-49 years), Age group 3 (70 and older) and gender as significant variables. The reason that
 we consider model 2 as the best model is that the model has the greatest adjusted R-squared
 value. We compare the adjusted R-squared value rather than R-squared because adjusted R^2
 is able to penalize usage of useless variables where as R-squared will increases as # of
-variables increase which is not a good way to compare models of different sizes. At last, by
-calculating Mallows’ CP, we can see the best model should include age1(35 to 49 years old),
+variables increase which is not a good way to compare models of different sizes.
+At last, by calculating Mallows’ CP, we can see the best model should include age1(35 to 49 years old),
 age3(70 years old or above) and gender as variables.
+
+
 To conclude our research, through our methods of finding the regression model and providing
 visualizations on our categorical variables, the variables age, gender and underlying health
-conditions played a role in the mental wellbeing of people during the pandemic. By setting
-the age group 18-34, male and no underlying health condition as the baseline we have
+conditions played a role in the mental wellbeing of people during the pandemic. 
+By setting the age group 18-34, male and no underlying health condition as the baseline we have
 observed that there is a higher percentage of people with worse mental health in the age
 groups 18 to 34 years, 35 to 49 years, 50 to 69 years except 70 years and older. There is also a
 higher percentage in female individuals and when people have an underlying health
