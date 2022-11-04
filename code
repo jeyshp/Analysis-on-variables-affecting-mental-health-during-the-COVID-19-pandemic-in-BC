@@ -1,0 +1,44 @@
+parsedData <- read.csv("~/Downloads/UnderLyingHealth.csv",header = TRUE)
+parsedData$UnderLyingHealth = factor(parsedData$UnderLyingHealth)
+parsedData = parsedData[1:10,]
+plot(parsedData$UnderLyingHealth,parsedData$PercentagePeople, 
+     ylab = "% of People with Worse Mental Health", xlab = "Has Underlying Health Condition",
+     main = "Boxplot Based on Uderlying Health Condition")
+mean(parsedData$PercentagePeople[parsedData$UnderLyingHealth == "No"])
+mean(parsedData$PercentagePeople[parsedData$UnderLyingHealth == "Yes"])
+
+parsedData <- read.csv("~/Downloads/AgeGroup.csv", header = TRUE)
+parsedData = parsedData[1:20,]
+parsedData$Age.Group = factor(parsedData$Age.Group)
+plot(parsedData$Age.Group,parsedData$percentage, ylab = "% of People with worse mental health",
+     xlab = "Age groups")
+mean(parsedData$percentage[parsedData$Age.Group == "18-34"])
+mean(parsedData$percentage[parsedData$Age.Group == "35-49"])
+mean(parsedData$percentage[parsedData$Age.Group == "50-69"])
+mean(parsedData$percentage[parsedData$Age.Group == "70+"])
+
+parsedData <- read.csv("~/Downloads/Gender.csv", header = TRUE)
+parsedData$Gender = factor(parsedData$Gender)
+plot(parsedData$Gender,parsedData$Percentage.of.People, 
+     ylab = "% of People with worse mental health",
+     xlab = "Gender")
+mean(parsedData$Percentage.of.People[parsedData$Gender == "Male"])
+mean(parsedData$Percentage.of.People[parsedData$Gender == "Female"])
+
+pasredData <- read.csv("parsedData.csv", sep = ",")
+based_reg <- lm(parsedData$`% of people` ~ parsedData$Age +
+                  parsedData$Gender + parsedData$`Underlying Health`)
+summary(base_reg)
+model1_reg <- lm(parsedData$`% of people` ~ parsedData$Gender 
+                 + parsedData$Age*parsedData$`Underlying Health`)
+summary(model1_reg)
+model2_reg <- lm(parsedData$`% of people` ~ parsedData$Age 
+                 + parsedData$Gender * parsedData$`Underlying Health`)
+summary(model2_reg)
+install.packages("leaps")
+library(leaps)
+s <- regsubsets(parsedData$`% of people` ~ parsedData$Age + parsedData$Gender *
+                  parsedData$`Underlying Health`, data = parsedData, method = "exhaustive")
+ss <- summary(s)
+ss$cp
+ss$which
