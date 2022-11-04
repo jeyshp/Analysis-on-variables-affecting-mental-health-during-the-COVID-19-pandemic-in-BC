@@ -3,7 +3,9 @@ Written by: Yu Fan, Aaron Tsang, Max Mai, Jeyshinee Pyneeandee
 ## Analysis on variables affecting mental health during the COVID-19 pandemic in BC
 
 ### Introduction
+
 ● Motivation
+
 COVID-19 has affected everybody’s life considerably for the past 2 years and has had
 devastating consequences too. Now that the PHO has removed the mask mandate and will be
 removing the Vaccine Passport program soon, this study aims at what COVID-19’s impacts
@@ -77,13 +79,12 @@ the category No is greater than Yes. This was an unexpected result compared to o
 because we are using the No underlying health conditions as the base line. We think that this
 may be due to the case of collinearity with other variables such as Age which may have
 affected the coefficient.
-![image](https://user-images.githubusercontent.com/114613042/199874084-3058a9c0-2f57-4644-a440-67906ea45878.png)
-
-
 Regardless, we observed that if we were to keep all other variables
 constant except the underlying health condition, there is a greater average of people with
 worse mental health when they do not have an underlying health condition.
-% of people with a worse mental health than pre-pandemic categorized by age group
+
+![image](https://user-images.githubusercontent.com/114613042/199874369-30f6e71f-879e-4c70-87b0-e71ea9156747.png)
+
 When isolating the categorical variable, Age groups, we observed that the category with the
 highest percentage average of people with worse mental health than pre-pandemic are people
 ages 35 to 49 followed by age group 50 to 69, 18 to 34 and finally the age group of 70+. We
@@ -93,8 +94,7 @@ Yhave the highest mean is because their livelihood/ social life is greatly affec
 COVID-19 shutdowns and indoor restrictions. However, a different study that includes
 income would be required to back up our reasoning.
 
-
-![image](https://user-images.githubusercontent.com/114613042/199874127-ee63d321-20cb-4de9-9c44-af8e826e1216.png)
+![image](https://user-images.githubusercontent.com/114613042/199874394-0e1696de-5d9a-4bd3-99e9-49e243e938c6.png)
 
 As we can clearly see through the box plot to compare the categories of gender (Male,
 Female) and the mean of each category calculated through R, this is the expected signs when
@@ -108,6 +108,10 @@ We then continue by fitting a regression model which we will call the base model
 This model includes no interaction between any of the 3 variables. We have decided to take
 the age group of 18-34, male gender and not having an underlying health condition as the
 baseline for the models.
+
+![image](https://user-images.githubusercontent.com/114613042/199874431-ab0f22ba-c3ee-45c5-b10d-08c69d5997dd.png)
+![image](https://user-images.githubusercontent.com/114613042/199874448-97d40999-6f2e-492a-9d9b-2befb5967206.png)
+
 We can note that the adjusted R-squared value of our base model is 0.4566. By
 looking at the above output and comparing the p-values, we can see that the intercept and the
 Gender variables are both very significant (***) and so is the Age variable at level 3 (which
@@ -120,10 +124,14 @@ We can further investigate by re-fitting the model (model1_reg) and this time,
 including the interaction between Age and Underlying health. We decided to use the
 interaction between age and underlying health because one may influence the other.
 
+![image](https://user-images.githubusercontent.com/114613042/199874506-91ea0e38-17ed-41cb-a933-dbeb81b8c303.png)
+![image](https://user-images.githubusercontent.com/114613042/199874521-cb307de0-e99c-4196-84fa-ac12b87d6125.png)
+
 We can note that the adjusted R-squared decreased, but not by a significant amount, to
 0.4505. The decrease of the adjusted R-squared value can be interpreted as the addition of the
 extra variable may indicate that it is not a good idea to include it because it does not add
 “value” to the model in explaining the response variable.
+
 The P-values of this model are clearly different from the base/previous model. The
 increased P-values could possibly be due to collinearity between variables. It makes sense
 that there may be signs of multicollinearity between having an underlying health condition
@@ -131,10 +139,14 @@ and age. As people get older, it is more likely for the person to have an underl
 condition. The increase may also be due to the loss of degrees of freedom which when
 estimating more parameters, costs us precision which leads to a lower t-statistic and thus
 higher p-values.
+
 Another pair of variables that might have some underlying interaction is Gender and
 Underlying Health conditions. E.g., females can be more prone to certain medical conditions
 such as breast cancer and strokes, while males can be more prone to lung cancer. We explore
 that by fitting another model (model2_reg).
+
+![image](https://user-images.githubusercontent.com/114613042/199874562-2ecc2fb0-bd34-417a-85b4-a0d3f8e6dcb8.png)
+![image](https://user-images.githubusercontent.com/114613042/199874577-8b488883-d368-4ef5-a0c5-628a65af780a.png)
 
 The adjusted R-squared value has now increased to 0.4666. In this model, the increased
 adjusted r-squared value indicates that the inclusion of the interaction between gender and
@@ -149,22 +161,25 @@ considered the “best” model based on the adjusted R-squared value. The adjus
 is used to explain the variation of the response variable based on the parameters. Thus, by
 maximizing this value, the model with the largest adjusted R-squared is generally considered
 a better fit.
-Another quick analysis can also be done to compare
+
 We can also further compare between these variables and models by calculating Mallows’ CP
 for each.
+![image](https://user-images.githubusercontent.com/114613042/199874614-b5fbc542-5804-416b-9ba7-67096f67b041.png)
 
 For model 1: p + 1 = 3, Mallows’ CP =23.424
-For model 2: p + 1 = 4, Mallows’ CP = 9.930
-For model 3: p + 1 = 5, Mallows’ CP = 4.132
-For model 4: p + 1 = 6, Mallows’ CP = 3.913
+\\ For model 2: p + 1 = 4, Mallows’ CP = 9.930
+\\ For model 3: p + 1 = 5, Mallows’ CP = 4.132
+\\ For model 4: p + 1 = 6, Mallows’ CP = 3.913
 For model 5: p + 1 = 7, Mallows’ CP = 5.496
 For model 6: p + 1 = 8, Mallows’ CP = 7.000
+
 We can see from the above that model 3 has a value for Mallow’s Cp (4.13) that is closest to
 p +1 (5), which indicates that it is the best model that leads to the least amount of bias
 among the 6 potential models. Model 3 is the model which includes the intercept, with Age
 and Gender as variables.
 
 ### Conclusion:
+
 In conclusion, we can see that COVID-19 has affected the mental health of people from
 different groups variously. We can see from the boxplots above, people ages from 35-49,
 people whose gender is female and people who do NOT have underlying health conditions
